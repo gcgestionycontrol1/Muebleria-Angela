@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Estado de Cuenta</title>
+<title>Estado de Cuenta - Mueblería Angela</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -76,6 +76,7 @@
     position:absolute;
     top:-55%;right:-55%;
     width:210%;height:210%;
+    /* Si tienes el logo de Mueblería Angela en link, puedes reemplazarlo aquí abajo */
     background-image:url('https://i.postimg.cc/PJkb6GV4/Logo-Murbleria.png');
     background-size:contain;
     background-repeat:no-repeat;
@@ -90,6 +91,7 @@
     transform:translate(-50%,-50%) rotate(-20deg);
     width:200px;height:200px;opacity:0.08;pointer-events:none;
   }
+  /* Si tienes el logo de Mueblería Angela en link, puedes reemplazarlo aquí abajo también */
   .logo-container img{width:100%;height:100%;object-fit:contain;}
 
   .brand{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
@@ -380,7 +382,7 @@ if(!abonos.length){
 
 const importeVentaNum = parseNum(importeVenta);
 const totalAbonado    = abonos.reduce((s,r)=> s + parseNum(r.abono), 0);
-const saldoActual     = importeVentaNum - totalAbonado;
+const saldoActual      = importeVentaNum - totalAbonado;
 
 const todosAbonos = [...abonos].sort((a,b)=> parseCustomDate(a.fecha) - parseCustomDate(b.fecha));
 
@@ -416,7 +418,7 @@ document.getElementById('app').innerHTML = `
     </div>
     <div>
       <div class="brand">Estado de Cuenta</div>
-      <div class="brand-name">MUEBLERÍA ADRIANA</div>
+      <div class="brand-name">MUEBLERÍA ANGELA</div>
       <div class="folio-title">${folio}</div>
       <div class="cliente-name">${cliente} · ${localidad}</div>
     </div>
@@ -489,13 +491,13 @@ document.getElementById('app').innerHTML = `
 function compartirWhatsApp(){
   const msg =
     `👋 Hola *${cliente}*, estimado cliente,\n\n` +
-    `🪑 *MUEBLERÍA ADRIANA* te informa tu estado de cuenta:\n\n` +
+    `🪑 *MUEBLERÍA ANGELA* te informa tu estado de cuenta:\n\n` +
     `📋 Folio: *${folio}*\n` +
     `💰 Importe venta: *${fmt(importeVenta)}*\n` +
     `✅ Total abonado: *${fmt(totalAbonado)}*\n` +
     `🔴 Saldo pendiente: *${fmt(saldoActual)}*\n\n` +
     `📎 Ver estado de cuenta completo:\n${window.location.href}\n\n` +
-    `⚠️ Si tiene alguna diferencia, comuníquese al: *6671896615*`;
+    `⚠️ Si tiene alguna diferencia, comuníquese al: *667XXXXXXX*`; // <-- REEMPLAZA AQUÍ EL TELÉFONO DE MUEBLERÍA ANGELA
 
   const celLimpio = celular.replace(/\D/g,'');
   const cel = celLimpio ? (celLimpio.startsWith('52') ? celLimpio : '52' + celLimpio) : '';
